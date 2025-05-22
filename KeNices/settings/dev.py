@@ -53,7 +53,7 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
-        "rest_framework.permissions.IsAuthenticated",
+        "rest_framework.permissions.AllowAny", # Cambiar en caso de autenticación
     ),
 }
 
@@ -75,12 +75,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ORIGIN_ALLOW_ALL = True  # Desactivar en producción
-
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:5173',
     'https://localhost',  # Reemplazar con los orígenes permitidos
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True  # Desactivar en producción
 
 
 ROOT_URLCONF = 'KeNices.urls'
