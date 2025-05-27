@@ -10,15 +10,18 @@ class Product(models.Model):
     expiry_date = models.DateField(null=True, blank=True)
 
     def __str__(self):
-        return self.name
+        return f"{self.name} ({self.stock}) @ {self.price}"
 
 class Sale(models.Model):
     sale_date = models.DateTimeField(auto_now_add=True)
     customer_name = models.CharField(max_length=100)
     customer_document_number = models.CharField(max_length=20)
 
+    class Meta:
+        ordering = ['-sale_date']  # Ordena por sale_date descendente (más recientes primero)
+
     def __str__(self):
-        return f"Sale to {self.customer_name}"
+        return f"Sale to {self.customer_name} @ {self.calculate_total()}"
 
     def calculate_total(self):
         total = sum(item.product.price * item.quantity for item in self.items.all())
@@ -30,4 +33,4 @@ class SaleItem(models.Model):
     quantity = models.PositiveIntegerField()
 
     def __str__(self):
-        return f"{self.quantity} of {self.product.name}"
+        return f"{self.product.name} ({self.quantity}) -> {self.sale.customer_name}"
