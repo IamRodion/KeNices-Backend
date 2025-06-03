@@ -7,11 +7,10 @@ API REST para la gestión de inventario y ventas para una floristería y tienda 
 ## Tabla de Contenidos
 
 1. [Tecnologías y dependencias](#tecnologías-y-dependencias)
-2. [Estructura del proyecto](#estructura-del-proyecto)
-3. [Modelos de datos](#modelos-de-datos)
-4. [Serializers](#serializers)
-5. [Vistas](#vistas)
-6. [Endpoints y ejemplos de uso](#endpoints-y-ejemplos-de-uso)
+2. [Modelos de datos](#modelos-de-datos)
+3. [Serializers](#serializers)
+4. [Vistas](#vistas)
+5. [Endpoints y ejemplos de uso](#endpoints-y-ejemplos-de-uso)
 
 ---
 
